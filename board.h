@@ -13,8 +13,12 @@ public:
     bool makeMove(int row, int col, char symbol);
     bool checkWinner(char symbol) const;
     bool isFull() const;
+
     int getFilledCells() const;
 
+    char getCell(int row, int col) const;
+
+    void reset();
     void drawBoard() const;
 };
 

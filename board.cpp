@@ -4,11 +4,15 @@
 using namespace std;
 
 Board::Board() {
+    reset();
+}
+
+void Board::reset() {
     filledCells = 0;
 
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            grid[i][j] = ' ';
+    for (int row = 0; row < 3; row++) {
+        for (int col = 0; col < 3; col++) {
+            grid[row][col] = ' ';
         }
     }
 }
@@ -33,7 +37,7 @@ bool Board::makeMove(int row, int col, char symbol) {
 }
 
 bool Board::checkWinner(char symbol) const {
-    // Check rows and columns
+    // Rows dan columns
     for (int i = 0; i < 3; i++) {
 
         // Row
@@ -76,8 +80,17 @@ int Board::getFilledCells() const {
     return filledCells;
 }
 
+char Board::getCell(int row, int col) const {
+    if (row < 0 || row >= 3 || col < 0 || col >= 3) {
+        return ' ';
+    }
+
+    return grid[row][col];
+}
+
 void Board::drawBoard() const {
     cout << "\n";
+
     cout << " " << grid[0][0] << " | "
          << grid[0][1] << " | "
          << grid[0][2] << "\n";

@@ -4,10 +4,10 @@
 #include <ctime>
 
 Bot::Bot() {
-    srand(time(nullptr));
+    srand(static_cast<unsigned int>(time(nullptr)));
 }
 
-void Bot::makeMove(char board[3][3]) {
+void Bot::makeMove(Board& board) {
 
     int emptyRows[9];
     int emptyCols[9];
@@ -18,7 +18,7 @@ void Bot::makeMove(char board[3][3]) {
     for (int row = 0; row < 3; row++) {
         for (int col = 0; col < 3; col++) {
 
-            if (board[row][col] == ' ') {
+            if (board.isValidMove(row, col)) {
                 emptyRows[count] = row;
                 emptyCols[count] = col;
                 count++;
@@ -34,5 +34,9 @@ void Bot::makeMove(char board[3][3]) {
     // Pilih cell kosong secara random
     int choice = rand() % count;
 
-    board[emptyRows[choice]][emptyCols[choice]] = 'O';
+    board.makeMove(
+        emptyRows[choice],
+        emptyCols[choice],
+        'O'
+    );
 }
