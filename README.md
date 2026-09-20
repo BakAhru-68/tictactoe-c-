@@ -17,7 +17,6 @@ Project ini dibuat sebagai project pembelajaran untuk mempraktikkan **Object-Ori
 - 🚪 Tombol Exit
 - 🖱️ Kontrol menggunakan mouse
 - 🖥️ GUI menggunakan Raylib
-- ✨ X dan O dibuat tebal agar lebih mudah dilihat
 
 ## 🛠️ Teknologi
 
